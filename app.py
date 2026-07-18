@@ -1383,5 +1383,9 @@ elif "Inference" in page:
             Session History</div>""", unsafe_allow_html=True)
         st.dataframe(pd.DataFrame(st.session_state["pred_history"]),
                      use_container_width=True, hide_index=True)
-        if st.button("🗑  Clear history"):
-            st.session_state["pred_history"] = []; st.rerun()
+        if st.button(
+    "🗑 Clear history",
+    key="clear_prediction_history_btn"
+):
+            st.session_state["pred_history"] = []
+            st.rerun()
